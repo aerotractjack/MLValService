@@ -3,26 +3,22 @@ from flasgger import swag_from
 template = {
     "swagger": "2.0",
     "info": {
-        "title": "TPA Estimate Service API Documentation",
-        "description": "API documentation for the Aerotract LabelService tool",
+        "title": "ML Validation Service API Documentation",
+        "description": "API documentation for the Aerotract ML Validation tool",
         "version": "1.0.0"
     }
 }
 
-swag_submit_tpa = swag_from({
+swag_mlval = swag_from({
     'responses': {
         200: {
                 "description": "Successfully submitted operation",
                 "schema": {
                     "type": "object",
                     "properties": {
-                        "tpa_rd_plot": {
+                        "metrics": {
                             "type": "string",
-                            "description": "Path to the TPA RD plot"
-                        },
-                        "tpa_report": {
-                            "type": "string",
-                            "description": "Path to the TPA report"
+                            "description": "Various ML metrics"
                         }
                     }
                 }
@@ -56,15 +52,6 @@ swag_submit_tpa = swag_from({
             'in': 'body',
             'required': True,
             'type': 'string'
-        },
-        {
-            'name': 'desired_confidence',
-            'description': 'Desired confidence level of TPA estimate',
-            'example': 0.95,
-            'in': 'body',
-            'required': False,
-            'type': 'number',
-            'format': 'float'
-        },
+        }
     ]
 })
