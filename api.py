@@ -19,7 +19,7 @@ def mlval():
     '''
     API endpoint to submit ML validation calculation requests for predictions
     '''
-    return jsonify("mlval"), 200
+    return jsonify("mlval!"), 200
 
 if __name__ == "__main__":
     app.run(port=7114, host="0.0.0.0")
